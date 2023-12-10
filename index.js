@@ -1,3 +1,4 @@
+const { log } = require('console');
 const {parse} = require('csv-parse');
 const fs = require('fs');
 
@@ -24,6 +25,7 @@ fs.createReadStream('./keplar_data.csv')
         console.log(`Error : ${error}`)
     })
     .on('end', ()=>{
+        console.log(habitable.map(planet => planet.kepler_name));
         console.log(`${habitable.length} habitable plants found.`);
         console.log('processing done.')
     })
